@@ -12,6 +12,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.karungkung.ereminderschool.R;
@@ -61,7 +62,6 @@ public class PengumumanFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Pengumuman>> call, Response<List<Pengumuman>> response) {
                 prepareList(response.body(), view);
-                mAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -73,13 +73,24 @@ public class PengumumanFragment extends Fragment {
 
     private void prepareList(final List<Pengumuman> dataList, View view){
         recyclerView = view.findViewById(R.id.recycler_pengumuman);
-        mAdapter = new PengumumanAdapter(dataList);
+        TextView txtData = view.findViewById(R.id.txt_nodata);
+        if(dataList.size() > 0){
+            mAdapter = new PengumumanAdapter(dataList);
+            txtData.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 1);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 1);
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), false));
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
+
+            mAdapter.notifyDataSetChanged();
+        }else{
+            txtData.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }
+
     }
 
     /**

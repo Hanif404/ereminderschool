@@ -119,7 +119,7 @@ public class NotifikasiService extends Service {
                         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
                         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
-                                .setSmallIcon(R.drawable.logo_android)
+                                .setSmallIcon(R.drawable.ic_school)
                                 .setContentTitle("Absensi")
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                 .setContentIntent(pendingIntent)
@@ -156,7 +156,7 @@ public class NotifikasiService extends Service {
                         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
                         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
-                                .setSmallIcon(R.drawable.logo_android)
+                                .setSmallIcon(R.drawable.ic_school)
                                 .setContentTitle("Pekerjaan Rumah")
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                 .setContentIntent(pendingIntent)
@@ -193,7 +193,7 @@ public class NotifikasiService extends Service {
                         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
                         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
-                                .setSmallIcon(R.drawable.logo_android)
+                                .setSmallIcon(R.drawable.ic_school)
                                 .setContentTitle("Pengumuman")
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                 .setContentIntent(pendingIntent)

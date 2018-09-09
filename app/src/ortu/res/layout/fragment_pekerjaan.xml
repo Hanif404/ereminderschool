@@ -9,6 +9,12 @@
         android:id="@+id/recycler_pr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/layout_padding"/>
+        android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/txt_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Tidak Ada Data"/>
 </RelativeLayout>

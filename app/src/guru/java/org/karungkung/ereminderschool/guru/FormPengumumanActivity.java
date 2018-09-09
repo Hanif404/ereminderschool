@@ -198,33 +198,37 @@ public class FormPengumumanActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, String> params = new HashMap<>();
-                params.put("id", String.valueOf(idEvent));
-                params.put("judul", txtJudul.getText().toString());
-                params.put("isi", txtIsi.getText().toString());
-                params.put("tglMulai", txtTglMulai.getText().toString());
-                params.put("wktMulai", txtWktMulai.getText().toString());
-                params.put("tglSelesai", txtTglAkhir.getText().toString());
-                params.put("wktSelesai", txtWktAkhir.getText().toString());
-                params.put("kelas", String.valueOf(sm.getPrefInteger("id_kelas")));
+                if(txtTglMulai.getText().length() > 0){
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("id", String.valueOf(idEvent));
+                    params.put("judul", txtJudul.getText().toString());
+                    params.put("isi", txtIsi.getText().toString());
+                    params.put("tglMulai", txtTglMulai.getText().toString());
+                    params.put("wktMulai", txtWktMulai.getText().toString());
+                    params.put("tglSelesai", txtTglAkhir.getText().toString());
+                    params.put("wktSelesai", txtWktAkhir.getText().toString());
+                    params.put("kelas", String.valueOf(sm.getPrefInteger("id_kelas")));
 
-                GetDataService service = ApiClient.getClient().create(GetDataService.class);
-                Call<ResponseBody> call = service.saveEvent(params);
-                call.enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Toast.makeText(FormPengumumanActivity.this, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
+                    GetDataService service = ApiClient.getClient().create(GetDataService.class);
+                    Call<ResponseBody> call = service.saveEvent(params);
+                    call.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            Toast.makeText(FormPengumumanActivity.this, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(FormPengumumanActivity.this, DaftarPengumumanActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                            Intent intent = new Intent(FormPengumumanActivity.this, DaftarPengumumanActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
 
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Toast.makeText(FormPengumumanActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(FormPengumumanActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    Toast.makeText(context, "Tanggal Mulai Harus diisi", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

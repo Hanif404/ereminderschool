@@ -3,12 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.karungkung.ereminderschool.ortu.PengumumanFregment">
+    tools:context="org.karungkung.ereminderschool.ortu.PengumumanFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_pengumuman"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/layout_padding"/>
+        android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/txt_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Tidak Ada Data"/>
 </RelativeLayout>

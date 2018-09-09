@@ -137,32 +137,36 @@ public class FormPekerjaanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(idMp != 0){
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("id", String.valueOf(id));
-                    params.put("mataPelajaran", String.valueOf(idMp));
-                    params.put("kelas", getIdDropdown(spKelas.getText().toString()));
-                    params.put("idGuru", String.valueOf(sm.getPrefInteger("id_guru")));
-                    params.put("isi", txtIsi.getText().toString());
-                    params.put("tglSelesai", txtTglPr.getText().toString());
-                    params.put("idSekolah", String.valueOf(sm.getPrefInteger("id_sekolah")));
+                    if(txtTglPr.getText().length() > 0){
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("id", String.valueOf(id));
+                        params.put("mataPelajaran", String.valueOf(idMp));
+                        params.put("kelas", getIdDropdown(spKelas.getText().toString()));
+                        params.put("idGuru", String.valueOf(sm.getPrefInteger("id_guru")));
+                        params.put("isi", txtIsi.getText().toString());
+                        params.put("tglSelesai", txtTglPr.getText().toString());
+                        params.put("idSekolah", String.valueOf(sm.getPrefInteger("id_sekolah")));
 
-                    GetDataService service = ApiClient.getClient().create(GetDataService.class);
-                    Call<ResponseBody> call = service.savePr(params);
-                    call.enqueue(new Callback<ResponseBody>() {
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            Toast.makeText(context, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
+                        GetDataService service = ApiClient.getClient().create(GetDataService.class);
+                        Call<ResponseBody> call = service.savePr(params);
+                        call.enqueue(new Callback<ResponseBody>() {
+                            @Override
+                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                Toast.makeText(context, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(context, DaftarPekerjaanActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
+                                Intent intent = new Intent(context, DaftarPekerjaanActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
 
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            Toast.makeText(context, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                            @Override
+                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                Toast.makeText(context, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else{
+                        Toast.makeText(context, "Tanggal Selesai Harus diisi", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     Toast.makeText(context, "Mata Pelajaran Masih Kosong", Toast.LENGTH_SHORT).show();
                 }

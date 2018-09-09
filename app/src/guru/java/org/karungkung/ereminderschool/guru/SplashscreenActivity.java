@@ -13,9 +13,16 @@ public class SplashscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SessionManager sm = new SessionManager(this);
 
-        Intent i = new Intent(SplashscreenActivity.this, LoginActivity.class);
-        startActivity(i);
-        finish();
+        if(sm.getPrefInteger("id_guru") != 0){
+            Intent i = new Intent(SplashscreenActivity.this, MainActivity.class);
+            startActivity(i);
+            finish();
+        }else{
+            Intent i = new Intent(SplashscreenActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }
