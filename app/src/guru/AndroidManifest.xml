@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picker_provider_paths" />
+        </provider>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.SplashscreenActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.AkunBaruActivity"
+            android:label="@string/title_activity_akunbaru"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.LoginActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.SiswaActivity"
+            android:label="@string/title_activity_siswa"
+            android:parentActivityName="org.karungkung.ereminderschool.guru.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.AbsensiActivity"
+            android:label="@string/title_activity_absensi"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.DaftarPengumumanActivity"
+            android:label="@string/title_activity_pengumuman"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.FormPengumumanActivity"
+            android:label="@string/title_activity_formpengumuman"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.DaftarPengumumanActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.DaftarPekerjaanActivity"
+            android:label="@string/title_activity_pekerjaan"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.FormPekerjaanActivity"
+            android:label="@string/title_activity_formpekerjaan"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.DaftarPekerjaanActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.TransferSiswaActivity"
+            android:label="@string/title_activity_transfer_siswa"
+            android:parentActivityName="org.karungkung.ereminderschool.guru.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

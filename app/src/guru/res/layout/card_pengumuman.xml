@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/layout_padding">
+
+        <TextView
+            android:id="@+id/label_judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JUDUL"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/label_tgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tanggal"
+            android:textSize="10sp"
+            android:layout_below="@+id/label_judul"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/label_isi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="content"
+            android:layout_below="@+id/label_tgl"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

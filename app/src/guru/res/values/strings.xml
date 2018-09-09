@@ -1,0 +1,16 @@
+<resources>
+    <string name="title_activity_main">Halaman Utama</string>
+    <string name="title_activity_akunbaru">Pendaftaran Guru</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_siswa">Daftar Siswa</string>
+    <string name="title_activity_absensi">Absensi</string>
+    <string name="title_activity_pengumuman">Daftar Pengumuman</string>
+    <string name="title_activity_formpengumuman">Form Pengumuman</string>
+    <string name="title_activity_pekerjaan">Daftar Pekerjaan</string>
+    <string name="title_activity_formpekerjaan">Form Pekerjaan</string>
+    <string name="title_activity_transfer_siswa">Transfer Siswa</string>
+</resources>

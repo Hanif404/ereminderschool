@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name="org.karungkung.ereminderschool.ortu.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme"/>
+
+        <service android:name="org.karungkung.ereminderschool.ortu.NotifikasiService" />
+
+        <activity
+            android:name="org.karungkung.ereminderschool.ortu.SplashscreenActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.ortu.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="org.karungkung.ereminderschool.ortu.AkunBaruActivity"
+            android:label="@string/title_activity_akun"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.ortu.LoginActivity" />
+        </activity>
+    </application>
+
+</manifest>

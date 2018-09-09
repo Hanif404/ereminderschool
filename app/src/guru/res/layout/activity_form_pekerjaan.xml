@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/layout_padding"
+    tools:context="org.karungkung.ereminderschool.guru.FormPekerjaanActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/sp_matapelajaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mata Pelajaran"
+            app:met_floatingLabel="normal" />
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/sp_kelas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kelas"
+            app:met_floatingLabel="normal" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <EditText
+                android:id="@+id/txt_isi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Isi Pekerjaan Rumah" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <EditText
+                android:id="@+id/txt_tgl_selesai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:focusableInTouchMode="false"
+                android:hint="Tgl Selesai Pekerjaan Rumah" />
+        </android.support.design.widget.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/putih"
+                android:background="@drawable/btn_style_blue"
+                android:text="Simpan"/>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

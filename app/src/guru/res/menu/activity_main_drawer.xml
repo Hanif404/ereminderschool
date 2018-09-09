@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/absensi"
+            android:icon="@drawable/ic_absensi"
+            android:title="Absensi" />
+        <item
+            android:id="@+id/pekerjaan_rumah"
+            android:icon="@drawable/ic_library"
+            android:title="Pekerjaan Rumah" />
+        <item
+            android:id="@+id/pengumuman"
+            android:icon="@drawable/ic_book"
+            android:title="Pengumuman" />
+        <item
+            android:id="@+id/daftar_siswa"
+            android:icon="@drawable/ic_pengumuman"
+            android:title="Daftar Siswa" />
+        <item
+            android:id="@+id/pindah_siswa"
+            android:icon="@drawable/ic_transfer"
+            android:title="Pindah Siswa" />
+    </group>
+
+    <item android:title="Pengguna">
+        <menu>
+            <item
+                android:id="@+id/keluar"
+                android:icon="@drawable/ic_door"
+                android:title="Keluar" />
+        </menu>
+    </item>
+
+</menu>

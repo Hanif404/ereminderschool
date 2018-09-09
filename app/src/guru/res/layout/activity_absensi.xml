@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.karungkung.ereminderschool.guru.AbsensiActivity">
+
+    <RelativeLayout
+        android:id="@+id/field_pencarian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/putih"
+        android:padding="@dimen/layout_margin">
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/sp_matapelajaran"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:hint="Mata Pelajaran"
+            app:met_floatingLabel="normal" />
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/sp_kelas"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="Kelas"
+            app:met_floatingLabel="normal"
+            android:layout_toRightOf="@id/sp_matapelajaran"/>
+
+        <Button
+            android:id="@+id/btn_cari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/putih"
+            android:background="@drawable/btn_style_blue"
+            android:layout_toRightOf="@id/sp_kelas"
+            android:layout_marginLeft="5dp"
+            android:text="Cari"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_absensi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/field_pencarian"
+        android:scrollbars="vertical" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="right"
+        android:background="@color/putih"
+        android:padding="@dimen/layout_padding">
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/putih"
+            android:background="@drawable/btn_style_blue"
+            android:text="Simpan"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="title_activity_main">Halaman Utama</string>
+    <string name="title_activity_akun">Pendaftaran Orangtua</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_absensi">Absensi</string>
+    <string name="title_pekerjaan">Pekerjaan Rumah</string>
+    <string name="title_pengumuman">Pengumuman</string>
+
+</resources>
