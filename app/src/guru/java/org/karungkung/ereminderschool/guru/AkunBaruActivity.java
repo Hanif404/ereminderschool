@@ -159,31 +159,50 @@ public class AkunBaruActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, String> params = new HashMap<>();
-                params.put("noIdentitas", noIdentitas.getText().toString());
-                params.put("nama", nama.getText().toString());
-                params.put("jnsGuru", String.valueOf(jnsGuru));
-                params.put("foto", "");
-                params.put("idSekolah", getIdDropdown(spSekolah.getText().toString()));
-                params.put("kelas", getIdDropdown(spKelas.getText().toString()));
-                params.put("mp", pilihMp.getText().toString());
-                params.put("username", username.getText().toString());
-                params.put("password", password.getText().toString());
+                HashMap<String, String> paramCheck = new HashMap<>();
+                paramCheck.put("username", username.getText().toString());
 
-                GetDataService service = ApiClient.getClient().create(GetDataService.class);
-                Call<ResponseBody> callsubmit = service.addGuru(params);
-                callsubmit.enqueue(new Callback<ResponseBody>() {
+                final GetDataService service = ApiClient.getClient().create(GetDataService.class);
+                Call<Boolean> callCheck = service.checkUsername(paramCheck);
+                callCheck.enqueue(new Callback<Boolean>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Toast.makeText(AkunBaruActivity.this, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if(response.body()){
+                            Toast.makeText(AkunBaruActivity.this, "Pengguna Sudah terdaftar", Toast.LENGTH_SHORT).show();
+                        }else{
+                            HashMap<String, String> params = new HashMap<>();
+                            params.put("noIdentitas", noIdentitas.getText().toString());
+                            params.put("nama", nama.getText().toString());
+                            params.put("jnsGuru", String.valueOf(jnsGuru));
+                            params.put("foto", "");
+                            params.put("idSekolah", getIdDropdown(spSekolah.getText().toString()));
+                            params.put("kelas", getIdDropdown(spKelas.getText().toString()));
+                            params.put("mp", pilihMp.getText().toString());
+                            params.put("username", username.getText().toString());
+                            params.put("password", password.getText().toString());
 
-                        Intent intent = new Intent(AkunBaruActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                        finish();
+                            GetDataService service = ApiClient.getClient().create(GetDataService.class);
+                            Call<ResponseBody> callsubmit = service.addGuru(params);
+                            callsubmit.enqueue(new Callback<ResponseBody>() {
+                                @Override
+                                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                    Toast.makeText(AkunBaruActivity.this, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(AkunBaruActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                    Toast.makeText(AkunBaruActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    public void onFailure(Call<Boolean> call, Throwable t) {
                         Toast.makeText(AkunBaruActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                     }
                 });

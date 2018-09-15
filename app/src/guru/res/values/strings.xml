@@ -13,4 +13,5 @@
     <string name="title_activity_pekerjaan">Daftar Pekerjaan</string>
     <string name="title_activity_formpekerjaan">Form Pekerjaan</string>
     <string name="title_activity_transfer_siswa">Transfer Siswa</string>
+    <string name="title_activity_forgot">Lupa Password</string>
 </resources>

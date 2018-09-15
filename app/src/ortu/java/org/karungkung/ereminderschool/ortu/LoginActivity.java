@@ -43,15 +43,19 @@ public class LoginActivity extends AppCompatActivity {
                 callsubmit.enqueue(new Callback<List<Ortu>>() {
                     @Override
                     public void onResponse(Call<List<Ortu>> call, Response<List<Ortu>> response) {
-                        SessionManager sm = new SessionManager(getApplicationContext());
-                        sm.setPrefInteger("id", response.body().get(0).getId());
-                        sm.setPrefInteger("id_sekolah", response.body().get(0).getIdSekolah());
-                        sm.setPrefString("name", response.body().get(0).getName());
-                        sm.setPrefString("nisn", response.body().get(0).getNisn());
+                        if(response.body().size() > 0){
+                            SessionManager sm = new SessionManager(getApplicationContext());
+                            sm.setPrefInteger("id", response.body().get(0).getId());
+                            sm.setPrefInteger("id_sekolah", response.body().get(0).getIdSekolah());
+                            sm.setPrefString("name", response.body().get(0).getName());
+                            sm.setPrefString("nisn", response.body().get(0).getNisn());
 
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Username atau password salah", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
@@ -67,6 +71,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, AkunBaruActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final TextView btnForgot = findViewById(R.id.btn_forgot);
+        btnForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });

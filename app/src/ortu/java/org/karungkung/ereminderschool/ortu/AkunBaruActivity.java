@@ -66,44 +66,62 @@ public class AkunBaruActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 HashMap<String, String> paramCheck = new HashMap<>();
-                paramCheck.put("nisn", nisn.getText().toString());
-                paramCheck.put("sekolah", getIdDropdown(spSekolah.getText().toString()));
+                paramCheck.put("username", username.getText().toString());
 
                 final GetDataService service = ApiClient.getClient().create(GetDataService.class);
-                Call<Boolean> callCheck = service.checkSiswa(paramCheck);
+                Call<Boolean> callCheck = service.checkUsername(paramCheck);
                 callCheck.enqueue(new Callback<Boolean>() {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                        Log.i("testtest", response.body()+"");
                         if(response.body()){
-                            HashMap<String, String> params = new HashMap<>();
-                            params.put("nisn", nisn.getText().toString());
-                            params.put("nama", nama.getText().toString());
-                            params.put("noTelp", noTelp.getText().toString());
-                            params.put("alamat", alamat.getText().toString());
-                            params.put("idSekolah", getIdDropdown(spSekolah.getText().toString()));
-                            params.put("username", username.getText().toString());
-                            params.put("password", password.getText().toString());
+                            Toast.makeText(AkunBaruActivity.this, "Pengguna Sudah terdaftar", Toast.LENGTH_SHORT).show();
+                        }else{
+                            HashMap<String, String> paramCheck = new HashMap<>();
+                            paramCheck.put("nisn", nisn.getText().toString());
+                            paramCheck.put("sekolah", getIdDropdown(spSekolah.getText().toString()));
 
-
-                            Call<ResponseBody> callsubmit = service.addOrtu(params);
-                            callsubmit.enqueue(new Callback<ResponseBody>() {
+                            final GetDataService service = ApiClient.getClient().create(GetDataService.class);
+                            Call<Boolean> callCheck = service.checkSiswa(paramCheck);
+                            callCheck.enqueue(new Callback<Boolean>() {
                                 @Override
-                                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                                    Toast.makeText(AkunBaruActivity.this, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
+                                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                                    if(response.body()){
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("nisn", nisn.getText().toString());
+                                        params.put("nama", nama.getText().toString());
+                                        params.put("noTelp", noTelp.getText().toString());
+                                        params.put("alamat", alamat.getText().toString());
+                                        params.put("idSekolah", getIdDropdown(spSekolah.getText().toString()));
+                                        params.put("username", username.getText().toString());
+                                        params.put("password", password.getText().toString());
 
-                                    Intent intent = new Intent(AkunBaruActivity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
+
+                                        Call<ResponseBody> callsubmit = service.addOrtu(params);
+                                        callsubmit.enqueue(new Callback<ResponseBody>() {
+                                            @Override
+                                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                                Toast.makeText(AkunBaruActivity.this, "Berhasil Disubmit", Toast.LENGTH_SHORT).show();
+
+                                                Intent intent = new Intent(AkunBaruActivity.this, LoginActivity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                                Toast.makeText(AkunBaruActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }else{
+                                        Toast.makeText(AkunBaruActivity.this, "Nisn siswa tidak terdaftar", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
 
                                 @Override
-                                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                public void onFailure(Call<Boolean> call, Throwable t) {
                                     Toast.makeText(AkunBaruActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                                 }
                             });
-                        }else{
-                            Toast.makeText(AkunBaruActivity.this, "Nisn siswa tidak terdaftar", Toast.LENGTH_SHORT).show();
                         }
                     }
 

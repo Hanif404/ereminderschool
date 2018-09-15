@@ -5,7 +5,7 @@
         <activity
             android:name="org.karungkung.ereminderschool.ortu.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
 
         <service android:name="org.karungkung.ereminderschool.ortu.NotifikasiService" />
 
@@ -21,8 +21,16 @@
         <activity
             android:name="org.karungkung.ereminderschool.ortu.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="org.karungkung.ereminderschool.ortu.AkunBaruActivity"
+        <activity
+            android:name="org.karungkung.ereminderschool.ortu.AkunBaruActivity"
             android:label="@string/title_activity_akun"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.ortu.LoginActivity" />
+        </activity>
+        <activity android:name="org.karungkung.ereminderschool.ortu.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

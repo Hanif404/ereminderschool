@@ -120,4 +120,12 @@ public interface GetDataService {
 
     @GET("delfoto/{id}")
     Call<ResponseBody> hapusFoto(@Path("id") int idguru);
+
+    @POST("checkguru")
+    @FormUrlEncoded
+    Call<Boolean> checkUsername(@FieldMap HashMap<String, String> params);
+
+    @POST("resetguru")
+    @FormUrlEncoded
+    Call<ResponseBody> resetPassword(@FieldMap HashMap<String, String> params);
 }

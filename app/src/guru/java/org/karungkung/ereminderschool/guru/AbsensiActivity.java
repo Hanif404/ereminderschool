@@ -142,15 +142,15 @@ public class AbsensiActivity extends AppCompatActivity {
                         params.put("guru", String.valueOf(sm.getPrefInteger("id_guru")));
                         params.put("pelajaran", String.valueOf(idMp));
 
-                        int status;
+                        int status = 0;
                         if(siswa.getStatus().equals("hadir")){
                             status = 1;
                         }else if(siswa.getStatus().equals("izin")){
                             status = 2;
                         }else if(siswa.getStatus().equals("sakit")){
                             status = 3;
-                        }else{
-                            status = 0;
+                        }else if(siswa.getStatus().equals("tdk")){
+                            status = 4;
                         }
                         params.put("absen", String.valueOf(status));
 

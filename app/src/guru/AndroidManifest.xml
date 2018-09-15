@@ -13,6 +13,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/picker_provider_paths" />
         </provider>
+
         <activity
             android:name="org.karungkung.ereminderschool.guru.MainActivity"
             android:label="@string/title_activity_main"
@@ -28,7 +29,7 @@
         </activity>
         <activity
             android:name="org.karungkung.ereminderschool.guru.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="org.karungkung.ereminderschool.guru.AkunBaruActivity"
             android:label="@string/title_activity_akunbaru"
@@ -94,6 +95,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.karungkung.ereminderschool.guru.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.karungkung.ereminderschool.guru.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.karungkung.ereminderschool.guru.LoginActivity" />
         </activity>
     </application>
 

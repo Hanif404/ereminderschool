@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
         sm = new SessionManager(this);
 
         TextView txtNama = (TextView) findViewById(R.id.txt_nama);
@@ -94,6 +95,12 @@ public class MainActivity extends AppCompatActivity
 
         TextView txtNoIdentitas = (TextView) findViewById(R.id.txt_noidentitas);
         txtNoIdentitas.setText(sm.getPrefString("no_identitas"));
+
+        TextView txtMenuNama = (TextView) header.findViewById(R.id.txt_menu_name);
+        txtMenuNama.setText(sm.getPrefString("name"));
+
+        TextView txtMenuNoInde = (TextView) header.findViewById(R.id.txt_menu_no);
+        txtMenuNoInde.setText(sm.getPrefString("no_identitas"));
 
         foto = (CircleImageView) findViewById(R.id.foto_profile);
         foto.setOnClickListener(new View.OnClickListener() {

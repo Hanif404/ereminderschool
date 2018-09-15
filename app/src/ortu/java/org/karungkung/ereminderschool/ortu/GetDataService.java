@@ -45,4 +45,12 @@ public interface GetDataService {
 
     @GET("notifPengumuman/{id}")
     Call<List<Pengumuman>> getNotifPengumuman(@Path("id") String nisn);
+
+    @POST("checkortu")
+    @FormUrlEncoded
+    Call<Boolean> checkUsername(@FieldMap HashMap<String, String> params);
+
+    @POST("resetortu")
+    @FormUrlEncoded
+    Call<ResponseBody> resetPassword(@FieldMap HashMap<String, String> params);
 }
